@@ -3,6 +3,7 @@ package seedu.mentorstack.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.mentorstack.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -167,6 +168,13 @@ public class UniquePersonList implements Iterable<Person> {
     @Override
     public Iterator<Person> iterator() {
         return internalList.iterator();
+    }
+
+    /**
+     * Sorts the list by the person's name in lexicographical order.
+     */
+    public void sortPersons() {
+        internalList.sort(Comparator.comparing(person -> person.getName()));
     }
 
     @Override

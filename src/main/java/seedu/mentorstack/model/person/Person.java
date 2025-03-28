@@ -13,7 +13,7 @@ import seedu.mentorstack.commons.util.ToStringBuilder;
  * Represents a Person in Mentorstack.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
-public class Person {
+public class Person implements Comparable<Person>{
 
     // Identity fields
     private final Name name;
@@ -152,6 +152,11 @@ public class Person {
                 .add("archive status", isArchived)
                 .add("marked", isMarked)
                 .toString();
+    }
+
+    @Override
+    public int compareTo(Person other) {
+        return this.getName().compareTo(other.getName()); // Case-insensitive sorting
     }
 
     /**

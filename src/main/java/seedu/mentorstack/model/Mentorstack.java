@@ -16,6 +16,7 @@ import seedu.mentorstack.model.person.UniquePersonList;
 public class Mentorstack implements ReadOnlyMentorstack {
 
     private final UniquePersonList persons;
+    private final UniquePersonList sortedPersons;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -26,6 +27,7 @@ public class Mentorstack implements ReadOnlyMentorstack {
      */
     {
         persons = new UniquePersonList();
+        sortedPersons = new UniquePersonList();
     }
 
     public Mentorstack() {}
@@ -46,6 +48,8 @@ public class Mentorstack implements ReadOnlyMentorstack {
      */
     public void setPersons(List<Person> persons) {
         this.persons.setPersons(persons);
+        this.sortedPersons.setPersons(persons);
+        this.sortedPersons.sortPersons();
     }
 
     /**
@@ -73,6 +77,8 @@ public class Mentorstack implements ReadOnlyMentorstack {
      */
     public void addPerson(Person p) {
         persons.add(p);
+        sortedPersons.add(p);
+        sortedPersons.sortPersons();
     }
 
     /**
@@ -84,6 +90,8 @@ public class Mentorstack implements ReadOnlyMentorstack {
         requireNonNull(editedPerson);
 
         persons.setPerson(target, editedPerson);
+        sortedPersons.setPerson(target, editedPerson);
+        sortedPersons.sortPersons();
     }
 
     /**
@@ -92,6 +100,7 @@ public class Mentorstack implements ReadOnlyMentorstack {
      */
     public void removePerson(Person key) {
         persons.remove(key);
+        sortedPersons.remove(key);
     }
 
     //// util methods
@@ -106,6 +115,11 @@ public class Mentorstack implements ReadOnlyMentorstack {
     @Override
     public ObservableList<Person> getPersonList() {
         return persons.asUnmodifiableObservableList();
+    }
+
+    @Override
+    public ObservableList<Person> getSortedPersonList() {
+        return sortedPersons.asUnmodifiableObservableList();
     }
 
     @Override
@@ -134,10 +148,14 @@ public class Mentorstack implements ReadOnlyMentorstack {
      */
     public void archive(Person personToArchive, Person archived) {
         persons.archivePerson(personToArchive, archived);
+        sortedPersons.archivePerson(personToArchive, archived);
+        sortedPersons.sortPersons();
     }
 
     public void unarchive(Person personToUnarchive, Person unarchived) {
         persons.unarchivePerson(personToUnarchive, unarchived);
+        sortedPersons.unarchivePerson(personToUnarchive, unarchived);
+        sortedPersons.sortPersons();
     }
 
     public void mark(Person target, Person marked) {

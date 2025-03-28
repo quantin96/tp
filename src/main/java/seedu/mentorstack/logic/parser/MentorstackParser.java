@@ -19,8 +19,12 @@ import seedu.mentorstack.logic.commands.FindCommand;
 import seedu.mentorstack.logic.commands.FinishCommand;
 import seedu.mentorstack.logic.commands.HelpCommand;
 import seedu.mentorstack.logic.commands.ListCommand;
+<<<<<<< Updated upstream
 import seedu.mentorstack.logic.commands.MarkCommand;
 import seedu.mentorstack.logic.commands.ShowArchiveCommand;
+=======
+import seedu.mentorstack.logic.commands.SortCommand;
+>>>>>>> Stashed changes
 import seedu.mentorstack.logic.commands.StatsCommand;
 import seedu.mentorstack.logic.commands.UnarchiveCommand;
 import seedu.mentorstack.logic.commands.UndoCommand;
@@ -102,6 +106,7 @@ public class MentorstackParser {
         case StatsCommand.COMMAND_WORD:
             return new StatsCommandParser().parse(arguments);
 
+<<<<<<< Updated upstream
         case MarkCommand.COMMAND_WORD:
             return new MarkCommandParser().parse(arguments);
 
@@ -116,6 +121,10 @@ public class MentorstackParser {
 
         case UnfinishCommand.COMMAND_WORD:
             return new UnfinishCommandParser().parse(arguments);
+=======
+        case SortCommand.COMMAND_WORD:
+            return new SortCommand();
+>>>>>>> Stashed changes
 
         default:
             logger.finer("This user input caused a ParseException: " + userInput);

@@ -14,4 +14,10 @@ public interface ReadOnlyMentorstack {
      */
     ObservableList<Person> getPersonList();
 
+    /**
+     * Returns an unmodifiable view of the sorted persons list.
+     * This list will not contain any duplicate persons.
+     */
+    ObservableList<Person> getSortedPersonList();
+
 }

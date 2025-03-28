@@ -25,6 +25,7 @@ public class ModelManager implements Model {
     private final Mentorstack mentorstack;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
+    private final FilteredList<Person> sortedPersons;
     private final Deque<ReadOnlyMentorstack> history = new ArrayDeque<>();
 
     /**
@@ -38,7 +39,11 @@ public class ModelManager implements Model {
         this.mentorstack = new Mentorstack(mentorstack);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredPersons = new FilteredList<>(this.mentorstack.getPersonList());
+<<<<<<< Updated upstream
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+=======
+        sortedPersons = new FilteredList<>(this.mentorstack.getSortedPersonList());
+>>>>>>> Stashed changes
     }
 
     public ModelManager() {
@@ -173,9 +178,15 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public ObservableList<Person> getSortedPersonList() {
+        return sortedPersons;
+    }
+
+    @Override
     public void updateFilteredPersonList(Predicate<Person> predicate) {
         requireNonNull(predicate);
         filteredPersons.setPredicate(predicate);
+        sortedPersons.setPredicate(predicate);
     }
 
     @Override
