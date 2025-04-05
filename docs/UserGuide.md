@@ -199,6 +199,8 @@ Examples:
 * `view f/a f/n f/n f/n v/` returns all entries since number of values does not match number of filters
 * `view f/abcde v/` returns `Invalid filter type or value.` as it is in the correct format but the filter is invalid
 
+  ![result for 'view f/s v/cs'](images/viewResult.png)
+
 ### Deleting a person : `delete`
 
 Deletes the specified person from the Mentorstack.
@@ -235,6 +237,8 @@ Format: `undo`
 
 * Views statistics of Mentorstack, supports subject-based statistics.
 * Shows gender distribution and total students.
+
+![result for 'undo'](images/undoResult.png)
 
 Format: `stats [s/SUBJECT]`
 
