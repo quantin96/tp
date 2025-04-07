@@ -483,6 +483,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC08 - Unarchive students**
 
 Preconditions: User is accessing the archive list and there are archived students.
@@ -514,8 +516,6 @@ Preconditions: User is accessing the archive list and there are archived student
 
   Use case ends.
 
-<div style="page-break-after: always;"></div>
-
 **Use case: UC10 - Mark student**
 
 **MSS**
@@ -536,6 +536,8 @@ Preconditions: User is accessing the archive list and there are archived student
 
   Use case ends.
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC11 - Unmark student**
 
 **MSS**
@@ -555,8 +557,6 @@ Preconditions: User is accessing the archive list and there are archived student
     * 2b1. Mentorstack shows an error message.
 
   Use case ends.
-
-<div style="page-break-after: always;"></div>
 
 **Use case: UC12 - Finish subject**
 
@@ -583,6 +583,8 @@ Preconditions: User is accessing the archive list and there are archived student
 
   Use case ends.
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC13 - Unfinish subject**
 
 **MSS**
@@ -607,8 +609,6 @@ Use case ends.
     * 2c1. Mentorstack shows an error message.
 
   Use case ends.
-
-<div style="page-break-after: always;"></div>
 
 **Use case: UC14 - Undo an unintended operation**
 
@@ -745,6 +745,8 @@ testers are expected to do more *exploratory* testing.
    1. Test case: `view f/n`<br>
        Expected: Filter/value not specified. No error. All students are listed.
 
+<div style="page-break-after: always;"></div>
+
 ### Archiving a person
 
 1. Archives students in Mentorstack.
@@ -794,6 +796,8 @@ testers are expected to do more *exploratory* testing.
 
     1. Other incorrect unmark commands to try: `unmark`, `unmark x`, `...` (where x is larger than the list size)<br>
        Expected: Similar to previous.
+
+<div style="page-break-after: always;"></div>
 
 ### Mark a student's subject as finished
 
