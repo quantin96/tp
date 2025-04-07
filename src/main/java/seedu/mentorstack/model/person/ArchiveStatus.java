@@ -10,8 +10,7 @@ public class ArchiveStatus {
 
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Phone numbers should only contain numbers, and it should be at least 3 digits long";
-    public static final String VALIDATION_REGEX = "\\d{3,}";
+            "Archive Status should either be true or false";
     public final String isArchived;
 
     /**
@@ -22,6 +21,10 @@ public class ArchiveStatus {
     public ArchiveStatus(String isArchived) {
         requireNonNull(isArchived);
         this.isArchived = isArchived;
+    }
+
+    public static boolean isValidArchiveStatus(String test) {
+        return test.equals("true") || test.equals("false");
     }
 
     @Override

@@ -121,6 +121,9 @@ class JsonAdaptedPerson {
         }
         final Email modelEmail = new Email(email);
 
+        if (!ArchiveStatus.isValidArchiveStatus(isArchived)) {
+            throw new IllegalValueException(ArchiveStatus.MESSAGE_CONSTRAINTS);
+        }
 
         final Set<Subject> modelSubject = new HashSet<>(personSubject);
         final Set<Subject> modelFinishedSubject = new HashSet<>(personFinishedSubject);
