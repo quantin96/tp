@@ -27,7 +27,7 @@ activate DeleteCommandParser
 DeleteCommandParser --> MentorstackParser
 deactivate DeleteCommandParser
 
-MentorsatckParser -> DeleteCommandParser : parse("1")
+MentorstackParser -> DeleteCommandParser : parse("1")
 activate DeleteCommandParser
 
 create DeleteCommand
