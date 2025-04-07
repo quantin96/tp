@@ -635,6 +635,8 @@ testers are expected to do more *exploratory* testing.
 
    1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
+   1. If this still fails, refer to the instructions in the Quick Start section in the User Guide for launch instructions.
+
 1. Saving window preferences
 
    1. Resize the window to an optimum size. Move the window to a different location. Close the window.

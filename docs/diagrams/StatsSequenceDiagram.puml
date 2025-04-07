@@ -1,17 +1,33 @@
 @startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
 actor User
-participant MentorstackParser
-participant StatsCommandParser
-participant StatsCommand
-participant Model
-participant CommandResult
+participant MentorstackParser MODEL_COLOR
+participant StatsCommandParser MODEL_COLOR
+participant StatsCommand MODEL_COLOR
+participant Model MODEL_COLOR
+participant CommandResult MODEL_COLOR
 
 User -> MentorstackParser: parseCommand("stats s/CS1010S")
+activate MentorstackParser
 MentorstackParser -> StatsCommandParser: parse("stats s/CS1010S")
+activate StatsCommandParser
 StatsCommandParser -> StatsCommand: new StatsCommand(Subject("CS1010S"))
+activate StatsCommand
 StatsCommand -> Model: getFilteredPersonList()
-Model -> StatsCommand: returns List<Person>
+activate Model
+Model --> StatsCommand
+deactivate Model
 StatsCommand -> CommandResult: new CommandResult(statisticsMessage)
-CommandResult -> User: display result
+activate CommandResult
+CommandResult --> StatsCommand
+deactivate CommandResult
+StatsCommand --> StatsCommandParser
+deactivate StatsCommand
+StatsCommandParser --> MentorstackParser
+deactivate StatsCommandParser
+MentorstackParser --> User
+deactivate MentorstackParser
 
 @enduml

@@ -267,12 +267,12 @@ Format: `clear`
 
 Format: `undo`
 
+![result for 'undo'](images/undoResult.png)
+
 ### View statistics : `stats`
 
 * Views statistics of Mentorstack, supports subject-based statistics.
 * Shows gender distribution and total students.
-
-![result for 'undo'](images/undoResult.png)
 
 Format: `stats [s/SUBJECT]`
 
@@ -292,6 +292,8 @@ Format: `mark INDEX…​`
 
 Examples:
 * `list` followed by `mark 1 3` marks the 1st and 3rd student in the current list.
+
+![result for 'mark'](images/markResultUG.png)
 
 ### Unmark a student : `unmark`
 
@@ -353,6 +355,8 @@ Format: `finish INDEX s/SUBJECT…​`
 
 Examples:
 * `finish 2 s/CS2103` marks CS2103 as completed by student 2.
+
+![result for 'finish'](images/finishResultUG.png)
 
 ### Indicate that a student has not finished a subject : `unfinish`
 
