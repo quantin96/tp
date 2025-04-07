@@ -1,7 +1,6 @@
 package seedu.mentorstack.logic.parser;
 
 import static seedu.mentorstack.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.mentorstack.logic.parser.ParserUtil.MESSAGE_INVALID_INDEX;
 
 import java.util.Set;
 import java.util.logging.Level;

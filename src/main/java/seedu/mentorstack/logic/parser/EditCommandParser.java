@@ -7,7 +7,6 @@ import static seedu.mentorstack.logic.parser.CliSyntax.PREFIX_GENDER;
 import static seedu.mentorstack.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.mentorstack.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.mentorstack.logic.parser.CliSyntax.PREFIX_SUBJECT;
-import static seedu.mentorstack.logic.parser.ParserUtil.MESSAGE_INVALID_INDEX;
 
 import java.util.Collection;
 import java.util.Collections;
