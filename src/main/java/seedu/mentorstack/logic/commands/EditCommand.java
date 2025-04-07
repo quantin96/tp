@@ -56,6 +56,7 @@ public class EditCommand extends Command {
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
     public static final String MESSAGE_EDIT_ARCHIVED_PERSON = "This person is archived.";
     public static final String MESSAGE_SUBJECT_COMPLETED = "This person has already completed given subjects.";
+    public static final String MESSAGE_NO_SUBJECTS = "Person must have at least one subject.";
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
@@ -119,6 +120,10 @@ public class EditCommand extends Command {
 
         if (checkFinishedSubjectsConflict(updatedSubject, updatedFinishSubject)) {
             throw new CommandException(MESSAGE_SUBJECT_COMPLETED);
+        }
+
+        if (updatedSubject.size() == 0 && updatedFinishSubject.size() == 0) {
+            throw new CommandException(MESSAGE_NO_SUBJECTS);
         }
 
         return new Person(updatedName, updatedGender, updatedPhone, updatedEmail,

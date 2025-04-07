@@ -364,12 +364,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case ends.
 
-**Use case: UC04 - Search for students**
+**Use case: UC04 - Find students by name**
 
 **MSS**
 
-1.  User inputs the search key.
-2.  Mentorstack shows a list of students that match the search key and are ready to further commands.
+1.  User inputs a string.
+2.  Mentorstack shows a list of students that contains the string in the name.
 
     Use case ends.
 
@@ -444,7 +444,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. Students is not in the list.
+* 2a. Students are not in the list.
     * 2a1. Mentorstack shows an error message.
    
   Use case ends.
@@ -457,6 +457,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Use case: UC08 - Unarchive students**
 
+Preconditions: User is accessing the archive list and there are archived students.
 **MSS**
 1. Tutor requests to unarchive a list of students.
 2. Mentorstack unarchives the corresponding students.
@@ -465,7 +466,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. Students is not in the list.
+* 2a. Students are not in the list.
     * 2a1. Mentorstack shows an error message.
 
   Use case ends.
@@ -784,10 +785,10 @@ testers are expected to do more *exploratory* testing.
 
     1. Prerequisites: Valid commands have been run that have changed the state of Mentorstack in the current session.
 
-    1. Test case: `undo`<br>
-       Expected: Undoes the previous state-changing command. Mentorstack is restored to the previous state.
+       1. Test case: `undo`<br>
+          Expected: Undoes the previous state-changing command. Mentorstack is restored to the previous state.
 
     1. Prerequisites: New Mentorstack session.
    
-    1. Test case: `undo`<br>
-       Expected: No operation undone. Error details shown in the status message.
+       1. Test case: `undo`<br>
+          Expected: No operation undone. Error details shown in the status message.

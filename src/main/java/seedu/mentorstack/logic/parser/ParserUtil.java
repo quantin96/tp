@@ -42,8 +42,14 @@ public class ParserUtil {
     public static Set<Index> parseIndexes(String indices) throws ParseException {
         requireNonNull(indices);
         Set<Index> indexSet = new HashSet<>();
+        Set<Integer> valueSet = new HashSet<>();
         for (String indexStr : indices.trim().split("\\s+")) {
-            indexSet.add(parseIndex(indexStr)); // Explicitly handle exceptions at this level
+            Index index = parseIndex(indexStr);
+            int value = index.getZeroBased();
+            if (!valueSet.contains(value)) {
+                indexSet.add(index); // Explicitly handle exceptions at this level
+                valueSet.add(value);
+            }
         }
         return indexSet;
     }

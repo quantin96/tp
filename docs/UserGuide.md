@@ -6,7 +6,7 @@
 
 # Mentorstack User Guide
 
-* Mentorstack helps CS tutors efficiently manage and track student contacts, attendance, participation, progress, and streamlines communication.
+* Mentorstack helps Computer Science (CS) tutors efficiently manage and track student contacts, attendance, participation, progress, and streamlines communication.
 * It simplifies student management across different levels and courses while catering to tech-savvy users who may prefer a command-line interface (CLI).
 
 <!-- * Table of Contents -->
@@ -132,8 +132,8 @@ Format: `edit INDEX [n/NAME] [g/GENDER] [p/PHONE] [e/EMAIL] [s/SUBJECT]…​`
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing subjects, the existing subjects of the person will be removed i.e adding of subjects is not cumulative.
-* Finished subjects cannot be edited.
+* When editing subjects, the existing unfinished subjects of the person will be removed (i.e. adding of subjects is not cumulative).
+* Finished subjects cannot be edited (i.e. They do not need to be specified again when editing unfinished subjects).
 * Cannot edit students who are already archived.
 
 Examples:
@@ -169,9 +169,10 @@ Filters persons based on values specified for different fields.
 
 Format: `view [[f/FIELD] [v/VALUE]]…​`
 
-* Field can take in 4 possible values:
+* Listed below are the keys for `FIELD`. Use keys to refer to the corresponding field (i.e. `f/n` refers to NAME).
+* There are 6 different keys:
 
-Keyword | Field
+Key | Field
 --------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **`n`** | NAME, filters entries containing VALUE
 **`g`** | GENDER, filters entries containing VALUE
@@ -182,11 +183,12 @@ Keyword | Field
 
 * Values are case-insensitive.
 * For NAME and SUBJECT, partial words will be matched e.g. `Han` will match `Hans`, `CS` will match `CS2103`
-* For SUBJECT, only unfinished subjects will be considered e.g. finished subjects are not counted by the filter.
 * For PHONE and EMAIL, partial words will be matched e.g. `123` will match `12345678`, `john` will match `john@doe.com`
+* * For SUBJECT, only unfinished subjects will be considered e.g. finished subjects are not counted by the filter.
 * `view` with invalid, incomplete or no arguments will just list all persons.
 * `view` can have multiple filters applied for any field (can be the same field).
 * Persons matching all filters will be returned (i.e. `AND` search).
+* Fields and values given will match the order in which they are specified (i.e. First instance of `f/` will match first instance of `v/`)
 
 Examples:
 * `view f/n v/john` returns `john` and `John Doe`.
@@ -206,7 +208,7 @@ Format: `delete INDEX…​`
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd person in Mentorstack.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+* `find Bernice` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 * `list` followed by `delete 2 3` deletes the 2nd and 3rd person in Mentorstack.
 
 ### Clearing all entries : `clear`
@@ -234,7 +236,7 @@ Format: `stats [s/SUBJECT]`
 
 Examples:
 * `stats` shows the statistics of Mentorstack.
-* `stats s/CS2102` shows the statistics of students currently enrolled in CS2103.
+* `stats s/CS2103` shows the statistics of students currently enrolled in CS2103.
 
 ### Mark a student : `mark`
 
@@ -254,7 +256,7 @@ Examples:
 * Unmarks a student in Mentorstack.
 * Input can contain multiple indices.
 * Students remain unmarked if they have already been unmarked.
-* * Archived students cannot be unmarked.
+* Archived students cannot be unmarked.
 
 Format: `unmark INDEX…​`
 
@@ -307,7 +309,7 @@ Format: `finish INDEX s/SUBJECT…​`
 * Subjects of archived students cannot be finished.
 
 Examples:
-* `finish 1 s\CS2103` marks CS2103 as completed by student 1.
+* `finish 2 s/CS2103` marks CS2103 as completed by student 2.
 
 ### Indicate that a student has not finished a subject : `unfinish`
 
@@ -322,7 +324,7 @@ Format: `unfinish INDEX s/SUBJECT…​`
 * Subjects of archived students cannot be unfinished.
 
 Examples:
-* `unfinish 1 s\CS2103` marks CS2103 as not completed by student 1.
+* `unfinish 2 s/CS2103` marks CS2103 as not completed by student 2.
 
 <div style="page-break-after: always;"></div>
 
@@ -388,7 +390,7 @@ Action          | Format, Examples
 **Add**         | `add n/NAME g/GENDER p/PHONE_NUMBER e/EMAIL s/SUBJECT…​` <br> e.g., `add n/James Ho g/M p/22224444 e/jamesho@example.com s/CS2103 s/LAJ1201`
 **Clear**       | `clear`
 **Delete**      | `delete INDEX..`<br> e.g., `delete 1 3` 
-**Edit**        | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [s/SUBJECT]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+**Edit**        | `edit INDEX [n/NAME] [g/GENDER] [p/PHONE_NUMBER] [e/EMAIL] [s/SUBJECT]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find**        | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List**        | `list`
 **View**        | `view [[f/FIELD] [v/VALUE]]…​`<br> e.g.,`view f/n v/john f/s v/CS`
