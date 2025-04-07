@@ -781,12 +781,14 @@ testers are expected to do more *exploratory* testing.
 
 ### Undo
 
-1. Undoes the previous state-changing command in Mentorstack.
+1. Undoes the previous state-changing command in Mentorstack successfully.
 
     1. Prerequisites: Valid commands have been run that have changed the state of Mentorstack in the current session.
 
        1. Test case: `undo`<br>
           Expected: Undoes the previous state-changing command. Mentorstack is restored to the previous state.
+
+1. Fails to undo the commands in Mentorstack.
 
     1. Prerequisites: New Mentorstack session.
    
