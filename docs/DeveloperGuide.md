@@ -506,8 +506,6 @@ Preconditions: User is accessing the archive list and there are archived student
 
   Use case ends.
 
-<div style="page-break-after: always;"></div>
-
 **Use case: UC09 - Show all archived students**
 
 **MSS**
@@ -764,8 +762,6 @@ testers are expected to do more *exploratory* testing.
 
     1. Test case: `unarchive 1`<br>
        Expected: First student in the archive list is moved back to the active list. Verify with `list`. Verify that student can now be edited.
-
-<div style="page-break-after: always;"></div>
 
 ### Marking a person
 
