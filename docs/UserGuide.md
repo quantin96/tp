@@ -69,14 +69,46 @@ except for `view` where one filter-value pair is treated as one parameter e.g. `
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
-**Notes about entries in Mentorstack**:
+**Notes about fields in Mentorstack**:
 
-* Each student entry in Mentorstack must have valid parameters for the following:
-  - Name
-  - Gender
-  - Phone
-  - Email
-  - Subject
+* Mentorstack supports operations over 5 different fields: (Name, Gender, Phone, Email, Subject).
+* Listed below are the restrictions for each field.
+
+Name
+
+* Names should only contain alphanumeric characters and spaces, and it should not be blank. (Case-sensitive)
+
+Gender
+
+* Gender should be 'F' or 'M' only. ('f', 'm' will be converted to 'F', 'M' respectively)
+
+Phone
+
+* Phone numbers should only contain numbers, and it should be at least 3 digits long.
+
+Email
+
+* Emails should be of the format local-part@domain and adhere to the following constraints:
+1. The local-part should only contain alphanumeric characters and these special characters, excluding the parentheses, (+_.-). The local-part may not start or end with any special characters.
+2. This is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods.
+   The domain name must:
+    - end with a domain label at least 2 characters long
+    - have each domain label start and end with alphanumeric characters
+    - have each domain label consist of alphanumeric characters, separated only by hyphens, if any.
+
+Subject
+
+* Subject names should be alphanumeric. (Case-sensitive)
+
+
+**Notes about student entries in Mentorstack**:
+
+* Each student entry in Mentorstack must have valid parameters for the following fields:
+    - Name
+    - Gender
+    - Phone
+    - Email
+    - Subject
 
 
 * Students must have 1 or more subjects, each subject can be marked as finished or unfinished.
@@ -100,7 +132,7 @@ Shows a message explaning how to access the help page.
 Format: `help`
 
 
-### Adding a person: `add`
+### Adding a student: `add`
 
 Adds a student to the address book.
 
@@ -108,44 +140,44 @@ Format: `add n/NAME g/GENDER p/PHONE_NUMBER e/EMAIL s/SUBJECT…​`
 
 <box type="tip" seamless>
 
-**Tip:** A person can have any number of subjects (> 0).
+**Tip:** A student can have any number of subjects (> 0).
 </box>
 
-A person can only have F or M as gender inputs.
+A student can only have F or M as gender inputs.
 </box>
 
 Examples:
 * `add n/John Doe g/M p/98765432 e/johnd@example.com s/CS2103`
 * `add n/Betsy Crowe g/F s/CS2103 e/betsycrowe@example.com p/1234567 s/LAJ1201`
 
-### Listing all persons : `list`
+### Listing all students : `list`
 
-Shows a list of all persons in the address book.
+Shows a list of all students in the address book.
 
 Format: `list`
 
-### Editing a person : `edit`
+### Editing a student : `edit`
 
-Edits an existing person in the address book.
+Edits an existing student in the address book.
 
 Format: `edit INDEX [n/NAME] [g/GENDER] [p/PHONE] [e/EMAIL] [s/SUBJECT]…​`
 
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing subjects, the existing unfinished subjects of the person will be removed (i.e. adding of subjects is not cumulative).
+* When editing subjects, the existing unfinished subjects of the student will be removed (i.e. adding of subjects is not cumulative).
 * Finished subjects cannot be edited (i.e. They do not need to be specified again when editing unfinished subjects).
 * Cannot edit students who are already archived.
 
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower s/CS2103` Edits the name of the 2nd person to be `Betsy Crower` and changes their subjects to only `CS2103`.
+*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
+*  `edit 2 n/Betsy Crower s/CS2103` Edits the name of the 2nd student to be `Betsy Crower` and changes their subjects to only `CS2103`.
 
 <div style="page-break-after: always;"></div>
 
-### Locating persons by name: `find`
+### Locating students by name: `find`
 
-Finds persons whose names contain any of the given keywords.
+Finds students whose names contain any of the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -153,7 +185,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
 * Only the name is searched.
 * Partial words will be matched e.g. `Han` will match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
+* students matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 Examples:
@@ -164,9 +196,9 @@ Examples:
 
 <div style="page-break-after: always;"></div>
 
-### Filtering persons by specific predicates: `view`
+### Filtering students by specific predicates: `view`
 
-Filters persons based on values specified for different fields.
+Filters students based on values specified for different fields.
 
 Format: `view [[f/FIELD] [v/VALUE]]…​`
 
@@ -186,8 +218,8 @@ Key     | Field
 * For NAME and SUBJECT, partial words will be matched e.g. `Han` will match `Hans`, `CS` will match `CS2103`
 * For SUBJECT, only unfinished subjects will be considered e.g. finished subjects are not counted by the filter.
 * For PHONE and EMAIL, partial words will be matched e.g. `123` will match `12345678`, `john` will match `john@doe.com`
-* `view` with no arguments will just list all persons.
-* `view` will also list all persons when given invalid format e.g.`view 123` or number of filters does not match number of values e.g. `f/n f/n f/n v/bob`.
+* `view` with no arguments will just list all students.
+* `view` will also list all students when given invalid format e.g.`view 123` or number of filters does not match number of values e.g. `f/n f/n f/n v/bob`.
 * `view` returns error message `Invalid filter type or value.` if the format is correct but there are some invalid filters or values.
 * `view` can have multiple filters applied for any field (can be the same field) e.g. `view f/n v/bob f/n v/jes`. 
 * Students matching all filters will be returned (i.e. `AND` search).
@@ -203,21 +235,21 @@ Examples:
 
   ![result for 'view f/s v/cs'](images/viewResult.png)
 
-### Deleting a person : `delete`
+### Deleting a student : `delete`
 
-Deletes the specified person from the Mentorstack.
+Deletes the specified student from the Mentorstack.
 
 Format: `delete INDEX…​`
 
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
+* Deletes the student at the specified `INDEX`.
+* The index refers to the index number shown in the displayed student list.
 * The index **must be a positive integer** 1, 2, 3, …​
 * Input can contain multiple indices.
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd person in Mentorstack.
-* `find Bernice` followed by `delete 1` deletes the 1st person in the results of the `find` command.
-* `list` followed by `delete 2 3` deletes the 2nd and 3rd person in Mentorstack.
+* `list` followed by `delete 2` deletes the 2nd student in Mentorstack.
+* `find Bernice` followed by `delete 1` deletes the 1st student in the results of the `find` command.
+* `list` followed by `delete 2 3` deletes the 2nd and 3rd student in Mentorstack.
 
 ### Clearing all entries : `clear`
 
@@ -231,7 +263,7 @@ Format: `clear`
 
 * Undoes the previous operation in Mentorstack.
 * Undo applies to all operations that modify the Mentorstack data storage e.g.  the `archive` command can be undone, but the `view` command cannot.
-* Undo does not apply when there is no previous operation undoable.
+* Undo can only undo operations in the current session.
 
 Format: `undo`
 
@@ -358,7 +390,7 @@ Mentorstack will always launch the Dark theme by default.
 
 ### Viewing bar chart statistics
 
-Mentorstack provides users with the option to view the statistics of students in the current active list, sorted by currently enrolled subjects.
+Mentorstack provides users with the option to view the number of students enrolled in each subject in the current active list as a bar chart.
 Users may view these statistics by navigating to the View menu.
 
 ### Saving the data
