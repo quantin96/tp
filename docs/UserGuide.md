@@ -109,7 +109,8 @@ Subject
     - Phone
     - Email
     - Subject
-<br>
+
+<div style="page-break-after: always;"></div>
 
 * Students must have 1 or more subjects, each subject can be marked as finished or unfinished.
 * Students can be archived, in which case they will be moved to the archive list where they cannot be edited.
@@ -343,12 +344,12 @@ Format: `unarchive INDEX…​`
 Examples:
 * `showarchive` followed by `unarchive 1 3` unarchives the 1st and 3rd student in the archived list.
 
+<div style="page-break-after: always;"></div>
+
 ### Indicate that a student has finished a subject : `finish`
 
 * Indicates that a student has finished a subject.
 * Finished subjects are still shown but will be marked as a different colour.
-
-<div style="page-break-after: always;"></div>
 
 Format: `finish INDEX s/SUBJECT…​`
 
