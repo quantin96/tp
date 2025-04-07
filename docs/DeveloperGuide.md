@@ -88,6 +88,8 @@ The `UI` component,
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 * depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
 
+<div style="page-break-after: always;"></div>
+
 ### Logic component
 
 **API** : [`Logic.java`](https://github.com/AY2425S2-CS2103-W11-1/tp/blob/master/src/main/java/seedu/mentorstack/logic/Logic.java)
@@ -95,8 +97,6 @@ The `UI` component,
 Here's a (partial) class diagram of the `Logic` component:
 
 <puml src="diagrams/LogicClassDiagram.puml" width="550"/>
-
-<div style="page-break-after: always;"></div>
 
 The sequence diagram below illustrates the interactions within the `Logic` component, taking `execute("delete 1")` API call as an example.
 
@@ -106,6 +106,8 @@ The sequence diagram below illustrates the interactions within the `Logic` compo
 
 **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline continues till the end of diagram.
 </box>
+
+<div style="page-break-after: always;"></div>
 
 How the `Logic` component works:
 
@@ -407,7 +409,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case ends.
 
-
 **Use case: UC05 - View all students’ information by filter**
 
 **MSS**
@@ -431,6 +432,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2a1. Mentorstack shows a message indicating no student satisfies the input requirements.
 
   Use case ends.
+
+<div style="page-break-after: always;"></div>
 
 **Use case: UC06 - View student distribution by stats**
 
@@ -460,8 +463,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-<div style="page-break-after: always;"></div>
-
 **Use case: UC07 - Archive students**
 
 **MSS**
@@ -481,7 +482,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2b1. Mentorstack shows an error message.
 
   Use case ends.
-
 
 **Use case: UC08 - Unarchive students**
 
@@ -503,6 +503,8 @@ Preconditions: User is accessing the archive list and there are archived student
     * 2b1. Mentorstack shows an error message.
 
   Use case ends.
+
+<div style="page-break-after: always;"></div>
 
 **Use case: UC09 - Show all archived students**
 
@@ -554,6 +556,8 @@ Preconditions: User is accessing the archive list and there are archived student
 
   Use case ends.
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC12 - Finish subject**
 
 **MSS**
@@ -578,8 +582,6 @@ Preconditions: User is accessing the archive list and there are archived student
     * 2c1. Mentorstack shows an error message.
 
   Use case ends.
-
-<div style="page-break-after: always;"></div>
 
 **Use case: UC13 - Unfinish subject**
 
@@ -606,6 +608,7 @@ Use case ends.
 
   Use case ends.
 
+<div style="page-break-after: always;"></div>
 
 **Use case: UC14 - Undo an unintended operation**
 
@@ -630,8 +633,6 @@ Use case ends.
 
     Use case ends.
 
-<div style="page-break-after: always;"></div>
-
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
@@ -645,6 +646,7 @@ Use case ends.
 * **Tutor**: CS educator using Mentorstack to manage students
 * **Student Profile**: A record containing a student’s personal details (name, email, phone, subjects)
 
+<div style="page-break-after: always;"></div>
 
 --------------------------------------------------------------------------------------------------------------------
 
