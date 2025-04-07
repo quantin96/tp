@@ -796,3 +796,18 @@ testers are expected to do more *exploratory* testing.
    
        1. Test case: `undo`<br>
           Expected: No operation undone. Error details shown in the status message.
+
+## **Appendix: Planned Enhancements**
+
+Team size: 5
+
+1. **Change condition for duplicate entry**: Mentorstack currently considers entries with the same name as duplicates (case-sensitive). As it is possible for students to have the same name, this will be changed to checking for duplicate phone or email in future iterations.
+2. **Allow other symbols for names**: Mentorstack currently only allows alphanumeric characters and spaces in names. This could be extended to include other symbols (e.g. `.`, `/`).
+3. **Rework name parser**: Mentorstack currently includes all spaces between parts of a name. This could be reworked to remove redundant or accidental spacing.
+4. **Rework `view` command**: The `view` command simply lists all students if invalid arguments are given. This could be reworked to always throw an error message whenever filter-value pairs are incorrectly specified to help users use the format.
+5. **Make `stats` command work for archived students**: The `stats` command currently only displays statistics for students currently enrolled in subjects in the active list. This could be extended to work for the archive list and completed subjects.
+6. **Make index error more specific**: Currently, Mentorstack does not flag index <= 0 as index error. This could be reworked to display an error message that the index is not within the range of the list of students.
+7. **Improved error message for multiple indices**: For commands with multiple indices involved, Mentorstack can be reworked to be more specific in which index is invalid (if any).
+8. **Allow other symbols for phones**: Mentorstack can allow other symbols (e.g. `+`, `-`) to account for country codes.
+9. **Change subjects to be case-insensitive**: Subjects are currently case-sensitive in Mentorstack (i.e. `CS2103` is different from `cs2103`). This could be extended to consider these subjects as the same by making them case-insensitive.
+10. **Create a search function that matches full words**: `find` and `view` currently matches partial words. It could be more effective if another search function was added that searches by full matching words.
