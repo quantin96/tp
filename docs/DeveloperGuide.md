@@ -290,7 +290,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | tutor   | remove a student’s details                          | remove a student whose details no longer need to track    |
 | `* * *`  | tutor   | edit a student’s details                            | update their information                                  |
 | `* * *`  | tutor   | search for a student by name or ID                  | quickly find their details                                |
-| `* * *`  | tutor   | view all students’ information                      | get in touch with the student whenever I want             | 
+| `* * *`  | tutor   | view all students’ information                      | get in touch with the student whenever I want             |
 | `* *`    | tutor   | undo an unintended operation                        | quickly correct any mistakes                              |
 | `* *`    | tutor   | View the gender distribution of my students         | adjust my teaching style                                  |
 | `* *`    | tutor   | archive a student                                   | focus on current student while not deleting past students |
@@ -323,17 +323,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 4a. Required information is missing.
     * 4a1. System shows an error message.
-    * 4a2. System prompts the tutor to enter the missing information. 
+    * 4a2. System prompts the tutor to enter the missing information.
     Use case resumes at step 3.
 
 * 4b. Information input format is invalid.
     * 4b1. System shows an error message.
-    * 4b2. System prompts the tutor to enter information. 
+    * 4b2. System prompts the tutor to enter information.
     Use case resumes at step 3.
 
 *  4c. A student’s information already exists.
     * 4c1. System shows an error message.
-    * 4c2. System prompts the tutor to add a new student or update the existing student. 
+    * 4c2. System prompts the tutor to add a new student or update the existing student.
     Use case resumes at step 3.
 
 **Use case: UC02 - Delete a student**
@@ -446,9 +446,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 2a. Students are not in the list.
     * 2a1. Mentorstack shows an error message.
-   
+
   Use case ends.
-  
+
 * 2b. A student is already archived.
     * 2b1. Mentorstack shows an error message.
 
@@ -635,6 +635,8 @@ testers are expected to do more *exploratory* testing.
 
    1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
+   1. If this still fails, refer to the instructions in the Quick Start section in the User Guide for launch instructions.
+
 1. Saving window preferences
 
    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
@@ -791,6 +793,21 @@ testers are expected to do more *exploratory* testing.
 1. Fails to undo the commands in Mentorstack.
 
     1. Prerequisites: New Mentorstack session.
-   
+
        1. Test case: `undo`<br>
           Expected: No operation undone. Error details shown in the status message.
+
+## **Appendix: Planned Enhancements**
+
+Team size: 5
+
+1. **Change condition for duplicate entry**: Mentorstack currently considers entries with the same name as duplicates (case-sensitive). As it is possible for students to have the same name, this will be changed to checking for duplicate phone or email in future iterations.
+2. **Allow other symbols for names**: Mentorstack currently only allows alphanumeric characters and spaces in names. This could be extended to include other symbols (e.g. `.`, `/`).
+3. **Rework name parser**: Mentorstack currently includes all spaces between parts of a name. This could be reworked to remove redundant or accidental spacing.
+4. **Rework `view` command**: The `view` command simply lists all students if invalid arguments are given. This could be reworked to always throw an error message whenever filter-value pairs are incorrectly specified to help users use the format.
+5. **Make `stats` command work for archived students**: The `stats` command currently only displays statistics for students currently enrolled in subjects in the active list. This could be extended to work for the archive list and completed subjects.
+6. **Make index error more specific**: Currently, Mentorstack does not flag index <= 0 as index error. This could be reworked to display an error message that the index is not within the range of the list of students.
+7. **Improved error message for multiple indices**: For commands with multiple indices involved, Mentorstack can be reworked to be more specific in which index is invalid (if any).
+8. **Allow other symbols for phones**: Mentorstack can allow other symbols (e.g. `+`, `-`) to account for country codes.
+9. **Change subjects to be case-insensitive**: Subjects are currently case-sensitive in Mentorstack (i.e. `CS2103` is different from `cs2103`). This could be extended to consider these subjects as the same by making them case-insensitive.
+10. **Create a search function that matches full words**: `find` and `view` currently matches partial words. It could be more effective if another search function was added that searches by full matching words.

@@ -1,18 +1,37 @@
 @startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
 actor User
-participant MentorstackParser
-participant ArchiveCommandParser
-participant ArchiveCommand
-participant ModelManager
+participant MentorstackParser MODEL_COLOR
+participant ArchiveCommandParser MODEL_COLOR
+participant ArchiveCommand MODEL_COLOR
+participant ModelManager MODEL_COLOR
 
 
 User -> MentorstackParser: parseCommand("archive 1")
+activate MentorstackParser
 MentorstackParser -> ArchiveCommandParser: new ArchiveCommandParser().parse("1")
+activate ArchiveCommandParser
 ArchiveCommandParser -> ArchiveCommand: new ArchiveCommand({1})
+activate ArchiveCommand
 ArchiveCommand -> ModelManager: getFilteredPersonList().get(1)
+activate ModelManager
 ModelManager --> ArchiveCommand: personToArchive
+deactivate ModelManager
 ArchiveCommand -> ModelManager: archivePerson(personToArchive, archivedPerson)
+activate ModelManager
 ModelManager -> ModelManager: updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS)
-ModelManager --> User: display the remaining students in the students' list after archive command
+activate ModelManager
+ModelManager --> ModelManager
+deactivate ModelManager
+ModelManager --> ArchiveCommand
+deactivate ModelManager
+ArchiveCommand --> ArchiveCommandParser
+deactivate ArchiveCommand
+ArchiveCommandParser --> MentorstackParser
+deactivate ArchiveCommandParser
+MentorstackParser --> User
+deactivate MentorstackParser
 
 @enduml
