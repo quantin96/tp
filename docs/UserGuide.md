@@ -109,7 +109,7 @@ Subject
     - Phone
     - Email
     - Subject
-
+<br>
 
 * Students must have 1 or more subjects, each subject can be marked as finished or unfinished.
 * Students can be archived, in which case they will be moved to the archive list where they cannot be edited.
@@ -280,6 +280,8 @@ Examples:
 * `stats` shows the gender-based statistics of Mentorstack.
 * `stats s/CS2103` shows the statistics of students currently enrolled in CS2103.
 
+<div style="page-break-after: always;"></div>
+
 ### Mark a student : `mark`
 
 * Marks a student in Mentorstack.
@@ -345,6 +347,8 @@ Examples:
 
 * Indicates that a student has finished a subject.
 * Finished subjects are still shown but will be marked as a different colour.
+
+<div style="page-break-after: always;"></div>
 
 Format: `finish INDEX s/SUBJECT…​`
 
