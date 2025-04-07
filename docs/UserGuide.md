@@ -289,7 +289,8 @@ Examples:
 
 ### Navigate to the archive list : `showarchive`
 
-Lists the students in the archive list.
+* Lists the students in the archive list.
+* Input arguments after showarchive will be ignored. (`showarchive 1` will be treated same as `showarchive`)
 
 Format: `showarchive`
 
