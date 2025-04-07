@@ -23,6 +23,8 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## **Design**
 
 ### Architecture
@@ -48,6 +50,8 @@ The bulk of the app's work is done by the following four components:
 
 [**`Commons`**](#common-classes) represents a collection of classes used by multiple other components.
 
+<div style="page-break-after: always;"></div>
+
 **How the architecture components interact with each other**
 
 The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
@@ -64,6 +68,8 @@ For example, the `Logic` component defines its API in the `Logic.java` interface
 <puml src="diagrams/ComponentManagers.puml" width="300" />
 
 The sections below give more details of each component.
+
+<div style="page-break-after: always;"></div>
 
 ### UI component
 
@@ -90,6 +96,8 @@ Here's a (partial) class diagram of the `Logic` component:
 
 <puml src="diagrams/LogicClassDiagram.puml" width="550"/>
 
+<div style="page-break-after: always;"></div>
+
 The sequence diagram below illustrates the interactions within the `Logic` component, taking `execute("delete 1")` API call as an example.
 
 <puml src="diagrams/DeleteSequenceDiagram.puml" alt="Interactions Inside the Logic Component for the `delete 1` Command" />
@@ -115,6 +123,8 @@ How the parsing works:
 * When called upon to parse a user command, the `MentorstackParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `MentorstackParser` returns back as a `Command` object.
 * All `XYZCommandParser` classes (e.g., `MentorstackParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
+<div style="page-break-after: always;"></div>
+
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2425S2-CS2103-W11-1/tp/blob/master/src/main/java/seedu/mentorstack/model/Model.java)
 
@@ -134,6 +144,7 @@ The `Model` component,
 
 </box>
 
+<div style="page-break-after: always;"></div>
 
 ### Storage component
 
@@ -151,6 +162,8 @@ The `Storage` component,
 Classes used by multiple components are in the `seedu.mentorstack.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **Implementation**
 
@@ -194,6 +207,8 @@ than attempting to perform the undo.
 
 </box>
 
+<div style="page-break-after: always;"></div>
+
 The following sequence diagram shows how an undo operation goes through the `Logic` component:
 
 <puml src="diagrams/UndoSequenceDiagram-Logic.puml" alt="UndoSequenceDiagram-Logic" />
@@ -211,6 +226,8 @@ Similarly, how an undo operation goes through the `Model` component is shown bel
 Step 5. The user then decides to execute the command `list`. Commands that do not modify the mentorstack, such as `list`, will usually not call `Model#remember()`. Thus, the `history` remains unchanged.
 
 <puml src="diagrams/UndoState4.puml" alt="UndoState4" />
+
+<div style="page-break-after: always;"></div>
 
 The following activity diagram summarizes what happens when a user executes a new command:
 
@@ -231,6 +248,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
+<div style="page-break-after: always;"></div>
+
 ### Stats feature
 #### Implementation
 The `StatsCommand` provides statistical insights into the persons stored in MentorStack. It can either display overall statistics or filter by a specified subject.
@@ -244,6 +263,8 @@ The `StatsCommand` provides statistical insights into the persons stored in Ment
 The following sequence diagram shows how a stats operation goes through the `Logic` component:
 
 <puml src="diagrams/StatsSequenceDiagram.puml" alt="StatsSequenceDiagram" />
+
+<div style="page-break-after: always;"></div>
 
 ### Student archiving
 
@@ -280,6 +301,8 @@ Computer science tutors who need an efficient system to organize student informa
 
 Mentorstack helps CS tutors efficiently manage and track student contacts, attendance, participation, progress, and streamlines communication. It simplifies student management across different levels and courses while catering to tech-savvy users who may prefer a command-line interface.
 
+<div style="page-break-after: always;"></div>
+
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
@@ -304,6 +327,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | tutor   | show all archived students                          | check which students are archived                         |
 | `* *`    | tutor   | view help window or hinter command                  | quickly get help to using Mentorstack                     |
 
+<div style="page-break-after: always;"></div>
 
 ### Use cases
 
@@ -363,6 +387,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2a1. Mentorstack shows an error message.
 
       Use case ends.
+
+<div style="page-break-after: always;"></div>
 
 **Use case: UC04 - Find students by name**
 
@@ -434,6 +460,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC07 - Archive students**
 
 **MSS**
@@ -483,6 +511,8 @@ Preconditions: User is accessing the archive list and there are archived student
 2. Mentorstack shows a list of archived students.
 
   Use case ends.
+
+<div style="page-break-after: always;"></div>
 
 **Use case: UC10 - Mark student**
 
@@ -549,6 +579,8 @@ Preconditions: User is accessing the archive list and there are archived student
 
   Use case ends.
 
+<div style="page-break-after: always;"></div>
+
 **Use case: UC13 - Unfinish subject**
 
 **MSS**
@@ -598,14 +630,14 @@ Use case ends.
 
     Use case ends.
 
+<div style="page-break-after: always;"></div>
+
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
 2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4.  The system will respond to any command within 3 seconds.
-
-*{More to be added}*
 
 ### Glossary
 
@@ -669,6 +701,8 @@ testers are expected to do more *exploratory* testing.
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
+<div style="page-break-after: always;"></div>
+
 ### Editing a person
 
 1. Editing a person while all persons are being shown
@@ -726,6 +760,8 @@ testers are expected to do more *exploratory* testing.
 
     1. Test case: `unarchive 1`<br>
        Expected: First student in the archive list is moved back to the active list. Verify with `list`. Verify that student can now be edited.
+
+<div style="page-break-after: always;"></div>
 
 ### Marking a person
 
@@ -796,6 +832,8 @@ testers are expected to do more *exploratory* testing.
 
        1. Test case: `undo`<br>
           Expected: No operation undone. Error details shown in the status message.
+
+<div style="page-break-after: always;"></div>
 
 ## **Appendix: Planned Enhancements**
 
