@@ -290,7 +290,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | tutor   | remove a student’s details                          | remove a student whose details no longer need to track    |
 | `* * *`  | tutor   | edit a student’s details                            | update their information                                  |
 | `* * *`  | tutor   | search for a student by name or ID                  | quickly find their details                                |
-| `* * *`  | tutor   | view all students’ information                      | get in touch with the student whenever I want             | 
+| `* * *`  | tutor   | view all students’ information                      | get in touch with the student whenever I want             |
 | `* *`    | tutor   | undo an unintended operation                        | quickly correct any mistakes                              |
 | `* *`    | tutor   | View the gender distribution of my students         | adjust my teaching style                                  |
 | `* *`    | tutor   | archive a student                                   | focus on current student while not deleting past students |
@@ -323,17 +323,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 4a. Required information is missing.
     * 4a1. System shows an error message.
-    * 4a2. System prompts the tutor to enter the missing information. 
+    * 4a2. System prompts the tutor to enter the missing information.
     Use case resumes at step 3.
 
 * 4b. Information input format is invalid.
     * 4b1. System shows an error message.
-    * 4b2. System prompts the tutor to enter information. 
+    * 4b2. System prompts the tutor to enter information.
     Use case resumes at step 3.
 
 *  4c. A student’s information already exists.
     * 4c1. System shows an error message.
-    * 4c2. System prompts the tutor to add a new student or update the existing student. 
+    * 4c2. System prompts the tutor to add a new student or update the existing student.
     Use case resumes at step 3.
 
 **Use case: UC02 - Delete a student**
@@ -446,9 +446,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 2a. Students are not in the list.
     * 2a1. Mentorstack shows an error message.
-   
+
   Use case ends.
-  
+
 * 2b. A student is already archived.
     * 2b1. Mentorstack shows an error message.
 
@@ -793,7 +793,7 @@ testers are expected to do more *exploratory* testing.
 1. Fails to undo the commands in Mentorstack.
 
     1. Prerequisites: New Mentorstack session.
-   
+
        1. Test case: `undo`<br>
           Expected: No operation undone. Error details shown in the status message.
 

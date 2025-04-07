@@ -221,7 +221,7 @@ Key     | Field
 * `view` with no arguments will just list all students.
 * `view` will also list all students when given invalid format e.g.`view 123` or number of filters does not match number of values e.g. `f/n f/n f/n v/bob`.
 * `view` returns error message `Invalid filter type or value.` if the format is correct but there are some invalid filters or values.
-* `view` can have multiple filters applied for any field (can be the same field) e.g. `view f/n v/bob f/n v/jes`. 
+* `view` can have multiple filters applied for any field (can be the same field) e.g. `view f/n v/bob f/n v/jes`.
 * Students matching all filters will be returned (i.e. `AND` search).
 * Fields and values given will match the order in which they are specified (i.e. First instance of `f/` will match first instance of `v/`)
 
@@ -436,7 +436,7 @@ Action          | Format, Examples
 ----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Add**         | `add n/NAME g/GENDER p/PHONE_NUMBER e/EMAIL s/SUBJECT…​` <br> e.g., `add n/James Ho g/M p/22224444 e/jamesho@example.com s/CS2103 s/LAJ1201`
 **Clear**       | `clear`
-**Delete**      | `delete INDEX..`<br> e.g., `delete 1 3` 
+**Delete**      | `delete INDEX..`<br> e.g., `delete 1 3`
 **Edit**        | `edit INDEX [n/NAME] [g/GENDER] [p/PHONE_NUMBER] [e/EMAIL] [s/SUBJECT]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find**        | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List**        | `list`
